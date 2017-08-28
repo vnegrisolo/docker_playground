@@ -1,5 +1,14 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
-docker run --rm -p 3000:3000 --add-host=qwert:192.168.1.3 docker_playground
-# docker run -it --rm docker_playground ping 192.168.1.3
-# docker run -it --rm --add-host=qwert:192.168.1.3 docker_playground ping qwert
+host='dev'
+
+ips=`cat /etc/hosts | grep -v ^\# | grep ${host} | awk '{print $1}'`
+echo "ips=${ips}"
+
+hosts="${hosts}--add-host=${host}:127.0.0.1 "
+for ip in ${ips} ; do
+  hosts="${hosts}--add-host=${host}:${ip} "
+done
+echo "hosts=${hosts}"
+
+docker run --rm -p 3000:3000 ${hosts} docker_playground

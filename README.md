@@ -1,24 +1,67 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is my docker playground.
 
-Things you may want to cover:
+# My docker container
 
-* Ruby version
+This is a very simple rails api app that will have two simple actions:
 
-* System dependencies
+- `/ping?host=localhost:3000`
+- `/pong`
 
-* Configuration
+# Setup
 
-* Database creation
+1. Find out all your public IP:
 
-* Database initialization
+```shell
+ifconfig en0 | grep 192
+```
 
-* How to run the test suite
+2. Add it to:
 
-* Services (job queues, cache servers, search engines, etc.)
+```shell
+echo '192.168.1.3 dev' | sudo tee -a /etc/hosts
+```
 
-* Deployment instructions
+## If you use docker-machine
 
-* ...
+1. Find out your docker-machine IP:
+
+```shell
+docker-machine ip
+```
+
+2. Add it to:
+
+```shell
+echo '192.168.99.100 dev' | sudo tee -a /etc/hosts
+```
+
+# Running
+
+## local
+
+On local env you **need** to bind your app to `0.0.0.0`
+
+```shell
+rails s -p 3001 -b 0.0.0.0
+```
+
+## docker
+
+```shell
+bin/docker-build
+bin/docker-run
+```
+
+# Testing
+
+```shell
+bin/curl-tests
+```
+
+## Tested on the following ENVs:
+
+- `Mac`
+  - `Docker for Mac`
+  - `docker-machine`
