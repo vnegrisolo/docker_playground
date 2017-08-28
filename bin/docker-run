@@ -11,4 +11,8 @@ for ip in ${ips} ; do
 done
 echo "hosts=${hosts}"
 
-docker run --rm -p 3000:3000 ${hosts} docker_playground
+dir=`pwd`
+volume="${dir}:/app"
+echo "volume=${volume}"
+
+docker run --rm -p 3000:3000 ${hosts} -v ${volume} docker_playground

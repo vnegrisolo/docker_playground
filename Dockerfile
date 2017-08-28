@@ -9,7 +9,7 @@ RUN apk add --update \
 COPY Gemfile* /app/
 RUN bundle install
 
-ADD . /app
+# ADD . /app
 
 EXPOSE 3000
 
