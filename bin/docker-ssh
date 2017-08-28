@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+
+docker run -i -t docker_playground sh
