@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+
+rm .results/*
+mkdir .results
+
+curl http://qwert:3000/pong > .results/pong3000
+curl http://qwert:3001/pong > .results/pong3001
+curl http://qwert:3000/ping?host=qwert:3000 > .results/ping3000pong3000
+curl http://qwert:3000/ping?host=qwert:3001 > .results/ping3000pong3001
+curl http://qwert:3001/ping?host=qwert:3000 > .results/ping3001pong3000
+curl http://qwert:3001/ping?host=qwert:3001 > .results/ping3001pong3001

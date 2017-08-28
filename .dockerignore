@@ -5,3 +5,4 @@ Dockerfile
 log
 tmp
 .byebug_history
+.results/
