@@ -3,10 +3,9 @@
 rm .results/*
 mkdir .results
 
-host='dev';
-curl http://${host}:3000/pong > .results/pong3000
-curl http://${host}:3001/pong > .results/pong3001
-curl http://${host}:3000/ping?host=${host}:3000 > .results/ping3000pong3000
-curl http://${host}:3000/ping?host=${host}:3001 > .results/ping3000pong3001
-curl http://${host}:3001/ping?host=${host}:3000 > .results/ping3001pong3000
-curl http://${host}:3001/ping?host=${host}:3001 > .results/ping3001pong3001
+curl http://dev:3000/pong > .results/pong3000
+curl http://dev:3001/pong > .results/pong3001
+curl http://dev:3000/ping?host=dev:3000 > .results/ping3000pong3000
+curl http://dev:3000/ping?host=dev:3001 > .results/ping3000pong3001
+curl http://dev:3001/ping?host=dev:3000 > .results/ping3001pong3000
+curl http://dev:3001/ping?host=dev:3001 > .results/ping3001pong3001
