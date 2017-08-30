@@ -1,0 +1,11 @@
+---
+version: '3'
+services:
+  docker_playground:
+    build: .
+    ports:
+    - 3000:3000
+    volumes:
+    - /Users/vnegrisolo/vfn/projects/vnegrisolo/docker_playground:/app
+    extra_hosts:
+    - dev:192.168.99.100

@@ -1,6 +1,7 @@
 FROM ruby:2.4.1-alpine3.6
 
 WORKDIR /app
+EXPOSE 3000
 
 RUN apk add --update \
     build-base \
@@ -10,7 +11,5 @@ COPY Gemfile* /app/
 RUN bundle install
 
 # ADD . /app
-
-EXPOSE 3000
 
 CMD ["rails", "server"]
